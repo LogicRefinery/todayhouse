@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { MswProvider } from "@/providers/MswProvider";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import "./_styles/reset.scss";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,7 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <ReactQueryProvider>
+          <MswProvider />
+          {children}
+        </ReactQueryProvider>
+      </body>
     </html>
   );
 }
