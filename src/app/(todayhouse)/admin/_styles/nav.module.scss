@@ -1,0 +1,26 @@
+.inner {
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      a {
+        font-weight: bold;
+        font-size: 18px;
+        display: block;
+        padding: 20px;
+        color: #999;
+        text-decoration: none;
+        transition: all 0.2s;
+        &.active {
+          color: #333;
+          text-decoration: underline;
+        }
+        &:hover {
+          color: #333;
+          text-decoration: underline;
+          transition: all 0.1s;
+        }
+      }
+    }
+  }
+}

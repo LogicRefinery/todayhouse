@@ -1,9 +1,28 @@
-async function getData() {
-  const res = await fetch("http://localhost:9090/data", { method: "GET" });
-  return res.json();
-}
+import Link from "next/link";
+import styles from "./_styles/main.module.scss";
 
-export default async function Home() {
-  const data = await getData();
-  return <main>{JSON.stringify(data)}</main>;
+export default function Page() {
+  return (
+    <main className={styles.wrap}>
+      <div className={styles.inner}>
+        <div className={styles.title}>
+          <h2>ThMall 에 오신것을 환영합니다.</h2>
+        </div>
+        <div className={styles.nav}>
+          <nav>
+            <ul>
+              <li>
+                <Link href={"/admin/category"}>Admin</Link>
+                <p>제품 및 카테고리 관리</p>
+              </li>
+              <li>
+                <Link href={"/product"}>Product</Link>
+                <p>제품 구매</p>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+  );
 }

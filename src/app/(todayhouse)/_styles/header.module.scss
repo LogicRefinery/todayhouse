@@ -1,0 +1,19 @@
+.warp {
+  .inner {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(100, 216, 254);
+    h1 {
+      font-size: 40px;
+      svg {
+        padding: 0 10px 0 0;
+      }
+      a {
+        display: flex;
+        text-decoration: none;
+        color: white;
+        padding: 20px 20px;
+      }
+    }
+  }
+}
