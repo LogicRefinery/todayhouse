@@ -63,6 +63,8 @@ function CategoryForm() {
       // 성공 했을 때
       // 1.localStorage 에 데이터 추가
       // 2. 쿼리 캐시에 원하는 쿼리 캐시데이터 수정
+
+      setCategoryName("");
       const getCategoryFromLocalStorage = (): CategoryList => {
         const localCategory = localStorage.getItem("categoryList");
         if (localCategory) {
@@ -90,11 +92,6 @@ function CategoryForm() {
         refetchType: "active",
       });
 
-      //웹 페이지 로드 ( layout.tsx ) : 로컬스토리지 데이터 get 해서 서버에 post 요청
-      //
-
-      //추가 -> 요청 -> 응답 -> 로컬에 저장 -> 리액트쿼리 캐시 업데이트
-
       //쿼리 리패치 : 리패치 라는게 결국은 http 요청을 한다는 뜻. ( 데이터 새로고침 : 할려면 통신해야됨 ㅋㅋ)
       //만약 쿼리 클라이언트의 리패치 요청이 실패하면 어떻게 처리함 ?
       //연관된 데이터들이 있는경우
@@ -118,9 +115,8 @@ function CategoryForm() {
           <input
             type="text"
             id="categoryName"
-            onChange={(e) => {
-              onChange(e);
-            }}
+            onChange={onChange}
+            value={categoryName}
             required
           />
           <button type="submit">추가</button>
@@ -135,12 +131,8 @@ export default CategoryForm;
 /*
 useMutation
 
-
-
 mutationFn : 비동기 작업을 수행하는 Promise를 반환하는 함수
-
 구조분해 할당한 mutate 를 호출하면 mutationFn 이 실행된다.
-
 
 useMutation 훅은 객체를 반환하며 객체에 대한 프로퍼티는 아래와 같습니다.
 
@@ -169,12 +161,3 @@ queryClient가 제공하는 메서드 중 invalidateQuery 메서드는 특정 �
 
 일반적으로 Mutations로 변경된 쿼리에 대해 쿼리의 staleTime을 0으로 만들어 주고, React Query가 이를 re-fetching 하도록 만들기 위해 사용합니다.
 */
-
-// const mutationFn = async()=> {
-//  const res = await fetch("http://localhost:9090/admin/category", {
-//    method: "POST",
-//    headers: { "Content-Type": "application/json" },
-//    body: "서버로 보낼 데이터 ( 업데이트 할 데이터 )",
-//  });
-//  return await res.json();
-// }

@@ -1,6 +1,13 @@
 "use client";
 
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction } from "react";
+type TimerId = ReturnType<typeof setTimeout>;
+
+/*
+  검색할때 요청을 새로할지,
+  검색해서 받아온거를 그냥 프론트에서 딥카피해서 모양만 보여줄지.
+
+*/
 
 function SearchForm({
   setSearchWord,
@@ -9,23 +16,25 @@ function SearchForm({
   setSearchWord: Dispatch<SetStateAction<string>>;
   searchWord: string;
 }) {
-  /*
-  서버에 API를 요청하지 않지만 디바운스를 구현해보자.
+  const debounce = (
+    callback: (e: ChangeEvent<HTMLInputElement>) => void,
+    delay: number
+  ) => {
+    let timerId: TimerId | null = null;
 
-  검색어 입력시 데이터를 필터링해야한다. 검색어로.
-  
-  검색어 상태는 어디서 관리할래 ?
-  
-  검색어 상태로 리액트 쿼리의 data 를 컨트롤 해야되는데 그게 여기서 돼 ? 검색어가 없을땐 원래 상태로 돌아와야되는데..
+    return (e: ChangeEvent<HTMLInputElement>) => {
+      if (timerId) clearTimeout(timerId);
+      timerId = setTimeout(() => {
+        callback(e);
+      }, delay);
+    };
+  };
 
-  검색어 상태를 상위 컴포넌트에서 관리한다 쳐도 그게 맞아? 왜냐면 이 컴포넌트 이름 서치 폼..
-
-  
-  */
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
   };
+
+  const onChange = debounce(onSearch, 500);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
