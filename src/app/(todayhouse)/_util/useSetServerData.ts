@@ -1,6 +1,5 @@
-"use client";
-
-import { useEffect } from "react";
+import { handlers } from "@/mocks/handlers";
+import { useEffect, useState } from "react";
 
 // next dynamic import 알아보기.
 // next app 실행 -> 특정페이지 접속 -> useEffect 되는 시점 즈음 import 를 뒤늦게 할 수 있음.
@@ -11,13 +10,9 @@ import { useEffect } from "react";
 //클라이언트 -> 클라이언트 데이터를 -> 서버 -> 클라인언트 -> 서버 -> 클라이언트
 export default function useSetServerData() {
   useEffect(() => {
-    if (localStorage.getItem("categoryList") === null) {
-      localStorage.setItem("categoryList", "[]");
-    }
-    const storage = localStorage.getItem("categoryList");
-
+    const storage = localStorage.getItem("categoryList") || "[]";
     let setServerData: () => Promise<any> | undefined = async () => {
-      const res = await fetch("http://localhost:9090", {
+      const res = await fetch("/api/init", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +21,17 @@ export default function useSetServerData() {
       });
       return await res.json();
     };
-
-    setServerData();
+    if (typeof window !== "undefined") {
+      //1.5초 설정의 이유 : require 로 불러오는 시간을 확보하기 위해..
+      const browser = require("msw/browser"); //require 은 비동기식 임포트다 .
+      setTimeout(() => {
+        browser
+          .setupWorker(...handlers)
+          .start()
+          .then(() => {
+            setServerData();
+          });
+      }, 1500);
+    }
   }, []);
 }

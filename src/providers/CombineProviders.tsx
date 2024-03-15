@@ -1,5 +1,4 @@
 import LocalProvider from "./LocalProvider";
-import { MswProvider } from "./MswProvider";
 import ReactQueryProvider from "./ReactQueryProvider";
 
 export default function CombineProviders({
@@ -10,10 +9,7 @@ export default function CombineProviders({
   return (
     <>
       <LocalProvider>
-        <ReactQueryProvider>
-          <MswProvider />
-          {children}
-        </ReactQueryProvider>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
       </LocalProvider>
     </>
   );

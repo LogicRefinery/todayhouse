@@ -8,7 +8,7 @@ function AddCategoryBtn() {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
-    <div>
+    <>
       <button
         onClick={() => {
           setShowModal(true);
@@ -21,7 +21,7 @@ function AddCategoryBtn() {
           <Modal showModal={showModal} onClose={() => setShowModal(false)} />,
           document.body
         )}
-    </div>
+    </>
   );
 }
 

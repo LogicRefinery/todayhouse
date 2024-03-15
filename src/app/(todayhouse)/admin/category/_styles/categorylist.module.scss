@@ -1,0 +1,54 @@
+.wrap {
+  form {
+  }
+  fieldset {
+  }
+  legend {
+    font-size: 1px;
+    text-indent: -9999px;
+    color: white;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+  }
+  .ul {
+    border-bottom: 1px solid rgb(100, 216, 254);
+    border-right: 1px solid rgb(100, 216, 254);
+    border-left: 1px solid rgb(100, 216, 254);
+    transition: all 0.2s;
+    border-radius: 0 0 10px 10px;
+    &.active {
+      border: none;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.13);
+      transition: all 0.2x;
+      border-top: 1px solid #d9d9d9;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      padding: 5px 0;
+      &:first-child {
+        padding: 10px 0 5px 0;
+      }
+      &:last-child {
+        padding: 5px 0 10px 0;
+      }
+      .checkbox {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgb(100, 216, 254);
+        margin: 0 5px;
+        &:checked {
+          background-color: rgb(100, 216, 254);
+          transition: all 0.2s;
+        }
+      }
+      label {
+        flex: 1;
+        // padding: 5px 0;
+      }
+    }
+  }
+}

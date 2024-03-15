@@ -9,7 +9,7 @@ function CategoryForm() {
   const [categoryName, setCategoryName] = useState<string>("");
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCategoryName(e.target.value);
+    setCategoryName(e.target.value.trim());
   };
   const queryClient = useQueryClient();
 
@@ -86,7 +86,6 @@ function CategoryForm() {
       //로컬 스토리지에 데이터 추가
 
       //뮤테이션 요청한 데이터 리액트 쿼리 캐시도 수정하기 위해 리패치 ( 실제로 패치 요청 작동함 )
-
       queryClient.invalidateQueries({
         queryKey: ["category", "list"],
         refetchType: "active",

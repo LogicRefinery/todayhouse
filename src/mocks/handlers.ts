@@ -4,16 +4,19 @@ import { http, HttpResponse } from "msw";
 let localStorageData: any = [];
 
 export const handlers = [
-  http.post("http://localhost:9090", async ({ request }) => {
-    const req = await request.json();
-    localStorageData = req;
+  http.post("/api/init", async ({ request }) => {
+    localStorageData = await request.json();
+
+    //이제 그냥 접근됨 ;; init 도 필요없음 ;;
+    const test = localStorage.getItem("categoryList");
+
     return HttpResponse.json({
       status: 200,
-      message: "로컬스토리지 데이터 셋팅이 완료되었습니다.",
+      message: "로컬스토리지 데이터 셋팅이 완료되었습니다",
     });
   }),
 
-  http.get("http://localhost:9090/admin/category", ({ request }) => {
+  http.get("/api/admin/category", async ({ request }) => {
     const url = new URL(request.url);
     const searchWord = url.searchParams.get("search");
     const categoryFilter = localStorageData.filter((category: Category) => {
@@ -26,21 +29,21 @@ export const handlers = [
       return HttpResponse.json(localStorageData);
     }
   }),
-  http.post("http://localhost:9090/admin/category", async ({ request }) => {
-    const req = await request.json();
-    localStorageData && localStorageData.push(req);
+  // http.post("http://localhost:9090/admin/category", async ({ request }) => {
+  //   const req = await request.json();
+  //   localStorageData && localStorageData.push(req);
 
-    return HttpResponse.json(req);
-  }),
-  http.delete("http://localhost:9090/admin/category", async ({ request }) => {
-    const req = (await request.json()) as string[];
+  //   return HttpResponse.json(req);
+  // }),
+  // http.delete("http://localhost:9090/admin/category", async ({ request }) => {
+  //   const req = (await request.json()) as string[];
 
-    localStorageData = localStorageData.filter(
-      (category: Category) => !req.includes(category.id)
-    );
+  //   localStorageData = localStorageData.filter(
+  //     (category: Category) => !req.includes(category.id)
+  //   );
 
-    //삭제요청 (어떤거 삭제할지) -> 로컬스토리지 데이터 저장한거에서 삭제 -> 리턴
-    //리턴 받은거 리액트쿼리에 적용 -> 로컬스토리지 적용..
-    return HttpResponse.json(localStorageData);
-  }),
+  //   //삭제요청 (어떤거 삭제할지) -> 로컬스토리지 데이터 저장한거에서 삭제 -> 리턴
+  //   //리턴 받은거 리액트쿼리에 적용 -> 로컬스토리지 적용..
+  //   return HttpResponse.json(localStorageData);
+  // }),
 ];
