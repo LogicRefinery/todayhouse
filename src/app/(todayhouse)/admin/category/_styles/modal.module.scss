@@ -1,3 +1,12 @@
+@mixin sr-only {
+  font-size: 1px;
+  text-indent: -9999px;
+  color: white;
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
 .overlay {
   display: flex;
   position: absolute;
@@ -10,8 +19,8 @@
 }
 .wrap {
   position: absolute;
-  width: 800px;
-  height: 600px;
+  width: 600px;
+  height: 300px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -23,17 +32,67 @@
     height: 100%;
     background-color: white;
     padding: 20px;
+    border-radius: 20px;
     .header {
       display: flex;
       justify-content: space-between;
       font-size: 24px;
+      justify-content: center;
+      border-bottom: 1px solid rgba(100, 216, 254, 0.4);
+      > div {
+        margin: 10px 0 20px 0;
+      }
     }
     .body {
       flex: 1;
-      background-color: aliceblue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      > div {
+        font-size: 14px;
+        margin: 20px 0 20px 0;
+      }
+
       overflow-y: auto;
+      legend {
+        @include sr-only;
+      }
+      label {
+        @include sr-only;
+      }
+      form {
+        border: 1px solid rgb(100, 216, 254);
+        border-radius: 10px;
+        #categoryName {
+          min-width: 300px;
+          height: 40px;
+          border-radius: 10px;
+
+          border: none;
+          &::placeholder {
+            color: rgba($color: #333, $alpha: 0.3);
+            padding-left: 10px;
+          }
+        }
+        .addBtn {
+          background-color: rgb(100, 216, 254);
+          height: 41px;
+          width: 50px;
+          border-radius: 0 8px 8px 0;
+          color: white;
+          font-weight: 700;
+        }
+      }
     }
     .footer {
+      display: flex;
+      justify-content: flex-end;
+      .closeBtn {
+        background-color: #999;
+        padding: 5px 10px;
+        border-radius: 15px;
+        color: white;
+      }
     }
   }
 }

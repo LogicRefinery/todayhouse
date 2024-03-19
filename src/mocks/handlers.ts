@@ -1,49 +1,48 @@
 import { Category } from "@/model/category";
 import { http, HttpResponse } from "msw";
 
-let localStorageData: any = [];
-
 export const handlers = [
-  http.post("/api/init", async ({ request }) => {
-    localStorageData = await request.json();
+  http.get("/api/admin/category", async ({ request }) => {
+    const categories = JSON.parse(localStorage.getItem("categoryList") || "{}");
+    const url = new URL(request.url);
+    const searchTerm = url.searchParams.get("search");
+    const filteredCategories = searchTerm
+      ? categories.filter((category: Category) =>
+          category.name.includes(searchTerm)
+        )
+      : categories;
 
-    //이제 그냥 접근됨 ;; init 도 필요없음 ;;
-    const test = localStorage.getItem("categoryList");
+    return HttpResponse.json(filteredCategories);
+  }),
+
+  http.post("/api/admin/category", async ({ request }) => {
+    const categories = JSON.parse(
+      localStorage.getItem("categoryList") as string
+    );
+    const requestData = await request.json();
+    const mergedCategoryData = [...categories, requestData];
+
+    localStorage.setItem("categoryList", JSON.stringify(mergedCategoryData));
 
     return HttpResponse.json({
       status: 200,
-      message: "로컬스토리지 데이터 셋팅이 완료되었습니다",
+      message: `새 카테고리를 추가 하였습니다.`,
     });
   }),
 
-  http.get("/api/admin/category", async ({ request }) => {
-    const url = new URL(request.url);
-    const searchWord = url.searchParams.get("search");
-    const categoryFilter = localStorageData.filter((category: Category) => {
-      if (searchWord) return category.name.includes(searchWord);
+  http.delete("/api/admin/category", async ({ request }) => {
+    const categories = JSON.parse(
+      localStorage.getItem("categoryList") as string
+    );
+    const requestData = (await request.json()) as string[];
+    const filteredCategories = categories.filter(
+      (category: Category) => !requestData?.includes(category.id)
+    );
+    localStorage.setItem("categoryList", JSON.stringify(filteredCategories));
+
+    return HttpResponse.json({
+      status: 200,
+      message: `카테고리를 삭제하였습니다.`,
     });
-
-    if (searchWord) {
-      return HttpResponse.json(categoryFilter);
-    } else {
-      return HttpResponse.json(localStorageData);
-    }
   }),
-  // http.post("http://localhost:9090/admin/category", async ({ request }) => {
-  //   const req = await request.json();
-  //   localStorageData && localStorageData.push(req);
-
-  //   return HttpResponse.json(req);
-  // }),
-  // http.delete("http://localhost:9090/admin/category", async ({ request }) => {
-  //   const req = (await request.json()) as string[];
-
-  //   localStorageData = localStorageData.filter(
-  //     (category: Category) => !req.includes(category.id)
-  //   );
-
-  //   //삭제요청 (어떤거 삭제할지) -> 로컬스토리지 데이터 저장한거에서 삭제 -> 리턴
-  //   //리턴 받은거 리액트쿼리에 적용 -> 로컬스토리지 적용..
-  //   return HttpResponse.json(localStorageData);
-  // }),
 ];

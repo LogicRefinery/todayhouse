@@ -1,37 +1,14 @@
 "use client";
 
-import { FormEvent } from "react";
+import { ChangeEvent, FormEventHandler } from "react";
 import styles from "../_styles/search.module.scss";
-
-type TimerId = ReturnType<typeof setTimeout>;
-type Prop = {
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+import { DebouncedFunc } from "lodash";
+type Props = {
   searchTerm: string;
+  onChange: DebouncedFunc<(e: ChangeEvent) => void>;
+  onSubmit: FormEventHandler<HTMLFormElement>;
 };
-type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
-
-function SearchForm({ searchTerm, setSearchTerm }: Prop) {
-  const debounce = (callback: (e: ChangeEvent) => void, delay: number) => {
-    let timerId: TimerId | null = null;
-
-    return (e: ChangeEvent) => {
-      if (timerId) clearTimeout(timerId);
-      timerId = setTimeout(() => {
-        callback(e);
-      }, delay);
-    };
-  };
-
-  const onSearch = (e: ChangeEvent) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const onChange = debounce(onSearch, 500);
-
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
-
+function Search({ searchTerm, onChange, onSubmit }: Props) {
   return (
     <div className={styles.form}>
       <form onSubmit={onSubmit}>
@@ -53,4 +30,4 @@ function SearchForm({ searchTerm, setSearchTerm }: Prop) {
   );
 }
 
-export default SearchForm;
+export default Search;
