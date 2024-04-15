@@ -27,7 +27,7 @@ function Provider({ children }: Props) {
     <QueryClientProvider client={client}>
       {children}
       <ReactQueryDevtools
-        initialIsOpen={process.env.NEXT_PUBLIC_MODE === "local"}
+      // initialIsOpen={process.env.NEXT_PUBLIC_MODE === "local"}
       />
     </QueryClientProvider>
   );
