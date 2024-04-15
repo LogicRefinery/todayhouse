@@ -1,0 +1,34 @@
+// rgb(100, 216, 254);
+.wrap {
+  .inner {
+    max-width: 1200px;
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+
+    label {
+      margin-right: 10px;
+    }
+    #selectCategory {
+      font-size: 16px;
+      border: 1px solid #666;
+      border-radius: 5px;
+      padding: 2px;
+      width: 150px;
+      option {
+      }
+    }
+    button {
+      font-size: 16px;
+      padding: 5px 10px;
+      background-color: #666;
+      border-radius: 5px;
+      margin-left: 10px;
+      color: white;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
+}

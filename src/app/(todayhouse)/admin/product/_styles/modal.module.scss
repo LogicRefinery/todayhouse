@@ -1,0 +1,241 @@
+@mixin sr-only {
+  font-size: 1px;
+  text-indent: -9999px;
+  color: white;
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+.overlay {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #333, $alpha: 0.3);
+  z-index: 6;
+}
+.wrap {
+  position: absolute;
+  width: 600px;
+  height: 1000px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    .header {
+      display: flex;
+      font-size: 24px;
+      justify-content: center;
+      border-bottom: 1px solid rgba(100, 216, 254, 0.4);
+      > div {
+        margin: 10px 0 20px 0;
+      }
+    }
+    .body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .prevImageWrap {
+        width: 300px;
+        height: 300px;
+        .prevImageBoxUl {
+          display: flex;
+          flex-wrap: wrap;
+          .prevImageBoxLi {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            &.singleImage {
+              width: 300px;
+              height: 300px;
+              transition: all 0.2s;
+            }
+            &.multipleImageSmall {
+              width: 150px;
+              height: 150px;
+              transition: all 0.2s;
+            }
+            &.multipleImageLarge {
+              width: 75px;
+              height: 75px;
+              transition: all 0.2s;
+            }
+            .mainImage {
+              border: 2px solid #666;
+            }
+            .prevImage {
+            }
+            .prevImageDeleteBtn {
+              position: absolute;
+              top: 0;
+              right: 0;
+              background-color: #666;
+              padding: 5px;
+              color: white;
+            }
+            .mainText {
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 10;
+              background-color: #666;
+              color: white;
+              padding: 2px 5px;
+            }
+          }
+          .choseMessage {
+            padding: 10px 0;
+            color: red;
+            font-size: 12px;
+          }
+        }
+      }
+      > div {
+        font-size: 14px;
+        margin: 20px 0 20px 0;
+      }
+
+      overflow-y: auto;
+
+      form {
+        margin-top: 20px;
+        fieldset {
+          .formWrap {
+            width: 300px;
+            .formRow {
+              width: 100%;
+              margin-bottom: 5px;
+
+              .formLabel {
+                display: flex;
+                justify-content: center;
+                background-color: #c1c1c1;
+
+                border-radius: 5px 5px 0 0;
+                label {
+                  align-items: center;
+                  display: flex;
+                  font-size: 14px;
+                  font-weight: bold;
+
+                  height: 30px;
+                  small {
+                    color: red;
+                  }
+                }
+              }
+              .formInput {
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
+                input {
+                  width: 100%;
+                  height: 30px;
+                  border: 1px solid #666;
+                  border-top: none;
+                  border-radius: 0 0 5px 5px;
+                }
+
+                select {
+                  width: 100%;
+                  height: 30px;
+                  border-top: none;
+                  border-radius: 0 0 5px 5px;
+                }
+                .inputError {
+                  border: 1px solid red;
+                }
+                .validationPassed {
+                  border: 1px solid rgb(100, 216, 254);
+                }
+              }
+
+              &:nth-last-child(2) {
+                display: flex;
+                justify-content: center;
+                .selectShipping {
+                  display: flex;
+                  align-items: center;
+                  &:first-child {
+                    margin-right: 20px;
+                  }
+                  .formInput {
+                    width: 15px;
+                    margin-right: 10px;
+                  }
+                  .formLabel {
+                    border-radius: 5px;
+                    padding: 0 10px;
+                  }
+                }
+              }
+              &:last-child {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 70px;
+                height: 40px;
+                .formSubmitDisabled {
+                  display: block;
+                  width: 70px;
+                  height: 40px;
+                  padding: 5px 10px;
+                  border-radius: 10px;
+                  background-color: black;
+                  color: white;
+                  font-size: 16px;
+                  font-weight: bold;
+                }
+                .formSubmit {
+                  display: block;
+                  width: 70px;
+                  height: 40px;
+                  padding: 5px 10px;
+                  border-radius: 10px;
+                  background-color: #666;
+                  color: white;
+                  font-size: 16px;
+                  font-weight: bold;
+                  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                  &:hover {
+                    background-color: black;
+                  }
+                }
+              }
+            }
+          }
+          legend {
+            @include sr-only;
+          }
+        }
+      }
+    }
+    .footer {
+      display: flex;
+      justify-content: flex-end;
+      .closeBtn {
+        background-color: #999;
+        padding: 5px 10px;
+        border-radius: 15px;
+        color: white;
+      }
+    }
+  }
+}
