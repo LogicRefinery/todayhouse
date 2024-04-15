@@ -18,7 +18,7 @@ function AddCategoryBtn() {
       </button>
       {showModal &&
         createPortal(
-          <Modal showModal={showModal} onClose={() => setShowModal(false)} />,
+          <Modal onClose={() => setShowModal(false)} />,
           document.body
         )}
     </>

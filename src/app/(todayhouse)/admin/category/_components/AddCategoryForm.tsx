@@ -1,11 +1,20 @@
 "use client";
 
 import { v4 as uuid } from "uuid";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useCreateCategories } from "../../_hooks/ReactQuery";
 import styles from "../_styles/modal.module.scss";
+import { useQueryClient } from "@tanstack/react-query";
+import { CategoryList } from "@/model/category";
 function CategoryForm() {
   const [categoryName, setCategoryName] = useState<string>("");
+  const queryClient = useQueryClient();
+  const categoryInput = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (categoryInput.current) {
+      categoryInput.current.focus();
+    }
+  }, []);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCategoryName(e.target.value.trim());
@@ -13,42 +22,35 @@ function CategoryForm() {
   const resetCategoryName = () => {
     setCategoryName("");
   };
-  const queryKey = ["category", "list"];
+  const queryKey = ["admin", "category"];
 
   const createMutation = useCreateCategories({
     queryKey,
     resetCategoryName,
   });
 
-  // const queryClient = useQueryClient();
+  const isCategoryNameDuplicate = () => {
+    const categories = queryClient.getQueryData(queryKey) as CategoryList;
+    const isDuplicate = categories.find((category) => {
+      return category.name === categoryName;
+    });
 
-  // const createMutation = useMutation({
-  //   mutationFn: async ({ id }: { id: string }) => {
-  //     const res = await fetch("/api/admin/category", {
-  //       method: "POST",
-  //       cache: "no-store",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({ id, name: categoryName }),
-  //     });
-  //     return await res.json();
-  //   },
-
-  //   onMutate() {},
-  //   onSuccess(response: Category, variable) {
-  //     setCategoryName("");
-  //     queryClient.invalidateQueries({
-  //       queryKey: ["category", "list"],
-  //       refetchType: "active",
-  //     });
-  //   },
-  // });
+    if (!!isDuplicate) {
+      alert(
+        `중복된 카테고리가 있습니다. 카테고리를 확인해주세요.\n중복 카테고리 : ${isDuplicate.name}`
+      );
+      return false;
+    } else {
+      createMutation.mutation.mutate({ id: uuid(), categoryName });
+    }
+  };
 
   return (
     <>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          createMutation.mutation.mutate({ id: uuid(), categoryName });
+          isCategoryNameDuplicate();
         }}
       >
         <fieldset>
@@ -59,6 +61,7 @@ function CategoryForm() {
             id={styles.categoryName}
             placeholder="추가할 카테고리를 입력해 주세요."
             onChange={onChange}
+            ref={categoryInput}
             value={categoryName}
             required
           />

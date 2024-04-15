@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEventHandler } from "react";
+import { ChangeEvent, FormEventHandler, useEffect, useRef } from "react";
 import styles from "../_styles/search.module.scss";
 import { DebouncedFunc } from "lodash";
 type Props = {

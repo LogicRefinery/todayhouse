@@ -61,7 +61,8 @@
         @include sr-only;
       }
       form {
-        border: 1px solid rgb(100, 216, 254);
+        margin-top: 20px;
+        border: 1px solid #666;
         border-radius: 10px;
         #categoryName {
           min-width: 300px;
@@ -75,12 +76,16 @@
           }
         }
         .addBtn {
-          background-color: rgb(100, 216, 254);
+          background-color: #666;
           height: 41px;
           width: 50px;
           border-radius: 0 8px 8px 0;
           color: white;
           font-weight: 700;
+          transition: all 0.2s;
+          &:hover {
+            background-color: black;
+          }
         }
       }
     }
@@ -92,6 +97,11 @@
         padding: 5px 10px;
         border-radius: 15px;
         color: white;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: black;
+        }
       }
     }
   }

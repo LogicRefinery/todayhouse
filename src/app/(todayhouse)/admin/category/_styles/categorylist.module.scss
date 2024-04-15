@@ -13,11 +13,16 @@
     height: 1px;
   }
   .ul {
-    border-bottom: 1px solid rgb(100, 216, 254);
-    border-right: 1px solid rgb(100, 216, 254);
-    border-left: 1px solid rgb(100, 216, 254);
+    border: 1px solid #666;
     transition: all 0.2s;
     border-radius: 0 0 10px 10px;
+    .spinner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+    }
     &.active {
       border: none;
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.13);
@@ -38,10 +43,10 @@
         appearance: none;
         width: 20px;
         height: 20px;
-        border: 1px solid rgb(100, 216, 254);
+        border: 1px solid #666;
         margin: 0 5px;
         &:checked {
-          background-color: rgb(100, 216, 254);
+          background-color: #666;
           transition: all 0.2s;
         }
       }

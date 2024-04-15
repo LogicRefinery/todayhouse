@@ -1,30 +1,53 @@
-import { Category } from "./../../../../model/category";
-import { query } from "express";
 import { CategoryList } from "@/model/category";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { CheckState, Images, Product } from "@/model/product";
 
 type GetQueryParameter = {
   queryKey: string[];
   requestUrl: string;
   gcTime: number;
   staleTime: number;
+  setDefaultValues?: (v: string) => void;
+  queryFn?: () => void;
 };
 
-/*
-일반적으로 커스텀 훅은 비동기 코드를 직접 포함하지 않습니다.
-그 이유는 커스텀 훅은 React 컴포넌트의 생명주기와 관련된 로직을 분리하고 재사용 가능하도록 만드는 데 목적이 있기 때문입니다.
-그렇기 때문에 커스텀 훅에서 직접적인 비동기 호출을 포함하는 것은 추천되지 않습니다.
+// const fetchGetDefaultData = async (
+//   requestUrl: string,
+//   setDefaultValues: any
+// ) => {
+//   const res = await fetch(requestUrl, { method: "GET", cache: "no-store" });
+//   const data = await res.json();
+//   setDefaultValues && setDefaultValues(data);
+//   return data;
+// };
 
-대신, 비동기 호출을 포함하는 함수를 따로 작성하고 해당 함수를 호출하여 데이터를 가져오는 방식을 사용하는 것이 좋습니다.
-그리고 이 함수를 커스텀 훅에서 사용하여 데이터를 반환하도록 구현합니다.
-*/
+// export function useQueryGetDefaultData({
+//   queryKey,
+//   requestUrl,
+//   gcTime,
+//   staleTime,
+//   setDefaultValues,
+//   queryFn,
+// }: GetQueryParameter) {
+//   const { data, isLoading } = useQuery({
+//     queryKey: queryKey,
+//     queryFn: () => {
+//       queryFn();
+//     },
+//     staleTime: staleTime,
+//     gcTime: gcTime,
+//   });
+//   // () => fetchGetDefaultData(requestUrl, setDefaultValues)
 
-const fetchGetCategories = async (requestUrl: string) => {
+//   return { data, isLoading };
+// }
+
+const fetchGetData = async (requestUrl: string) => {
   const res = await fetch(requestUrl, { method: "GET", cache: "no-store" });
   return await res.json();
 };
 
-export function useGetCategories({
+export function useQueryGetData({
   queryKey,
   requestUrl,
   gcTime,
@@ -32,11 +55,10 @@ export function useGetCategories({
 }: GetQueryParameter) {
   const { data, isLoading } = useQuery({
     queryKey: queryKey,
-    queryFn: () => fetchGetCategories(requestUrl),
+    queryFn: () => fetchGetData(requestUrl),
     staleTime: staleTime,
     gcTime: gcTime,
   });
-
   return { data, isLoading };
 }
 
@@ -145,6 +167,151 @@ export function useCreateCategories({
     },
     onSuccess() {
       resetCategoryName();
+      queryClient.invalidateQueries({
+        queryKey: queryKey,
+        refetchType: "active",
+      });
+    },
+  });
+  return { mutation };
+}
+
+const fetchCreateProduct = async (product: Product) => {
+  const res = await fetch("/api/admin/product", {
+    method: "POST",
+    cache: "no-store",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(product),
+  });
+  return await res.json();
+};
+
+export function useCreateProduct() {
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (product: Product) => fetchCreateProduct(product),
+    onSuccess(response) {
+      queryClient.invalidateQueries({
+        queryKey: ["admin", "products"],
+        refetchType: "active",
+      });
+    },
+  });
+  return { mutation };
+}
+const fetchDeleteProduct = async (product: CheckState) => {
+  const res = await fetch("/api/admin/product", {
+    method: "DELETE",
+    cache: "no-store",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(product),
+  });
+  return await res.json();
+};
+
+export function useDeleteProduct({ queryKey }: { queryKey: string[] }) {
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (product: CheckState) => fetchDeleteProduct(product),
+    onSuccess(response) {
+      queryClient.invalidateQueries({
+        queryKey,
+        refetchType: "active",
+      });
+    },
+  });
+  return { mutation };
+}
+
+const fetchModifyProduct = async (product: Product) => {
+  const res = await fetch("/api/admin/product", {
+    method: "PATCH",
+    cache: "no-store",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(product),
+  });
+  return await res.json();
+};
+
+export function useModifyProduct({ queryKey }: { queryKey: string[] }) {
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (product: Product) => fetchModifyProduct(product),
+    onSuccess(response) {
+      queryClient.invalidateQueries({
+        queryKey: ["admin", "products"],
+        refetchType: "active",
+      });
+      queryClient.invalidateQueries({
+        queryKey: queryKey,
+        refetchType: "active",
+      });
+    },
+  });
+  return { mutation };
+}
+
+const fetchCreateImages = async (images: Images) => {
+  const res = await fetch("/api/admin/product/images", {
+    method: "POST",
+    cache: "no-store",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(images),
+  });
+  return await res.json();
+};
+export function useCreateImages() {
+  const mutation = useMutation({
+    mutationFn: (images: Images) => fetchCreateImages(images),
+    onSuccess(response) {
+      // 완료됐을 때 머하지 ?
+    },
+  });
+  return { mutation };
+}
+const fetchDeleteImages = async (images: CheckState) => {
+  const res = await fetch("/api/admin/product/images", {
+    method: "DELETE",
+    cache: "no-store",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(images),
+  });
+  return await res.json();
+};
+
+export function useDeleteImages({ queryKey }: { queryKey: string[] }) {
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (images: CheckState) => fetchDeleteImages(images),
+    onSuccess(response) {
+      queryClient.invalidateQueries({
+        queryKey,
+        refetchType: "active",
+      });
+    },
+  });
+  return { mutation };
+}
+
+const fetchModifyImages = async (images: Images) => {
+  const res = await fetch("/api/admin/product/images", {
+    method: "PATCH",
+    cache: "no-store",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(images),
+  });
+  return await res.json();
+};
+
+export function useModifyImages({ queryKey }: { queryKey: string[] }) {
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (images: Images) => fetchModifyImages(images),
+    onSuccess(response) {
+      queryClient.invalidateQueries({
+        queryKey: ["admin", "products", "images"],
+        refetchType: "active",
+      });
       queryClient.invalidateQueries({
         queryKey: queryKey,
         refetchType: "active",

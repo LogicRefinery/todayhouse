@@ -3,13 +3,7 @@ import styles from "../_styles/modal.module.scss";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import AddCategoryForm from "./AddCategoryForm";
 
-function Modal({
-  onClose,
-  showModal,
-}: {
-  onClose: () => void;
-  showModal: boolean;
-}) {
+function Modal({ onClose }: { onClose: () => void }) {
   return (
     <>
       <div className={styles.overlay} onClick={onClose}></div>
