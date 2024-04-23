@@ -1,0 +1,96 @@
+.categoryArticleWrap {
+  display: flex;
+  justify-content: center;
+  .categoryArticleInner {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    .spinnerWrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      p {
+        margin: 10px 0;
+      }
+    }
+    .articleWrap {
+      margin-bottom: 30px;
+
+      .articleTitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h4 {
+          font-size: 24px;
+          font-weight: 700;
+        }
+        a {
+          display: block;
+          padding: 20px 0;
+          text-decoration: none;
+          color: #999;
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+
+      .articleProduct {
+        display: flex;
+        .articleLink {
+          display: block;
+          width: calc(100% / 4);
+          margin-right: 20px;
+          text-decoration: none;
+          &:last-child {
+            margin: 0;
+          }
+
+          .article {
+            &:hover {
+              .articleImage {
+                position: relative;
+                aspect-ratio: 1;
+                img {
+                  transform: scale(1.1); /* 이미지 크기를 1.1배로 확대합니다. */
+                  transition: transform 0.3s ease; /* 호버 효과에 애니메이션을 추가합니다. */
+                }
+              }
+            }
+            .articleImage {
+              position: relative;
+              aspect-ratio: 1;
+              overflow: hidden;
+              border-radius: 10px;
+              img {
+              }
+            }
+            .articleBrandName {
+              color: #757575;
+              word-break: break-all;
+              font-size: 11px;
+              font-weight: 400;
+              line-height: 13px;
+              margin-top: 14px;
+            }
+            .articleProductName {
+              display: block;
+              margin-top: 5px;
+              word-break: break-all;
+              font-size: 13px;
+              font-weight: 400;
+              color: #000;
+            }
+            .articleProductPrice {
+              margin: 0;
+              font-size: 17px;
+              line-height: 23px;
+              font-weight: 700;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}

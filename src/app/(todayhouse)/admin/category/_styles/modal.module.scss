@@ -68,11 +68,11 @@
           min-width: 300px;
           height: 40px;
           border-radius: 10px;
+          padding-left: 10px;
 
           border: none;
           &::placeholder {
             color: rgba($color: #333, $alpha: 0.3);
-            padding-left: 10px;
           }
         }
         .addBtn {

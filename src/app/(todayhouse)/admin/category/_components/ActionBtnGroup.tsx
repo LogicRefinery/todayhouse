@@ -48,9 +48,12 @@ function ActionBtnGroup({ searchTerm, checkboxes, resetChecked }: Props) {
           )
           .map((product: Product) => product.categoryInfo.categoryName);
 
+        const uniqueFailedDeleteCategoryList = Array.from(
+          new Set(failedDeleteCategoryList)
+        );
         alert(
           `삭제할 카테고리에 상품이 등록되어있습니다. 상품을 제거하고 카테고리를 삭제해주세요.\n\n상품이 등록되어있는 카테고리 : ${JSON.stringify(
-            failedDeleteCategoryList
+            uniqueFailedDeleteCategoryList
           )}`
         );
         return false;
@@ -88,9 +91,12 @@ function ActionBtnGroup({ searchTerm, checkboxes, resetChecked }: Props) {
             allCategoryIds.includes(product.categoryInfo.categoryId as never)
           )
           .map((product: Product) => product.categoryInfo.categoryName);
+        const uniqueFailedDeleteCategoryList = Array.from(
+          new Set(failedDeleteCategoryList)
+        );
         alert(
           `삭제할 카테고리에 상품이 등록되어있습니다. 상품을 제거하고 카테고리를 삭제해주세요.\n\n상품이 등록되어있는 카테고리 : ${JSON.stringify(
-            failedDeleteCategoryList
+            uniqueFailedDeleteCategoryList
           )}`
         );
         return false;

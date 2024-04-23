@@ -9,38 +9,8 @@ type GetQueryParameter = {
   staleTime: number;
   setDefaultValues?: (v: string) => void;
   queryFn?: () => void;
+  enabled?: boolean;
 };
-
-// const fetchGetDefaultData = async (
-//   requestUrl: string,
-//   setDefaultValues: any
-// ) => {
-//   const res = await fetch(requestUrl, { method: "GET", cache: "no-store" });
-//   const data = await res.json();
-//   setDefaultValues && setDefaultValues(data);
-//   return data;
-// };
-
-// export function useQueryGetDefaultData({
-//   queryKey,
-//   requestUrl,
-//   gcTime,
-//   staleTime,
-//   setDefaultValues,
-//   queryFn,
-// }: GetQueryParameter) {
-//   const { data, isLoading } = useQuery({
-//     queryKey: queryKey,
-//     queryFn: () => {
-//       queryFn();
-//     },
-//     staleTime: staleTime,
-//     gcTime: gcTime,
-//   });
-//   // () => fetchGetDefaultData(requestUrl, setDefaultValues)
-
-//   return { data, isLoading };
-// }
 
 const fetchGetData = async (requestUrl: string) => {
   const res = await fetch(requestUrl, { method: "GET", cache: "no-store" });

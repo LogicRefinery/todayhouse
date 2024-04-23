@@ -1,0 +1,133 @@
+.articleWrap {
+  display: flex;
+  justify-content: center;
+  .articleInner {
+    width: 1200px;
+    .article {
+      display: flex;
+      .articleImages {
+        .imagesWrap {
+          display: flex;
+          margin-right: 30px;
+          .images {
+            display: flex;
+            flex-direction: column;
+            .imageWrap {
+              overflow: hidden;
+              box-sizing: border-box;
+              width: 100px;
+              height: 100px;
+              margin-bottom: 5px;
+              border-radius: 5px;
+              &.active {
+                border: 2px solid rgb(100, 216, 254);
+              }
+              img {
+                aspect-ratio: 1;
+
+                &:hover {
+                  transform: scale(1.2);
+                  transition: 0.2s all;
+                }
+              }
+            }
+          }
+          .imageDetail {
+            width: 400px;
+            height: 400px;
+            margin-left: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+
+            img {
+              aspect-ratio: 1;
+            }
+          }
+        }
+      }
+      .articleDescriptionWrap {
+        flex: 1;
+        .articleDescription {
+          .brandName {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 19px;
+            color: #757575;
+          }
+          .productName {
+            font-size: 22px;
+            line-height: 33px;
+            min-height: 43px;
+          }
+          .productPrice {
+            font-size: 32px;
+            font-weight: 700;
+          }
+          .shipping {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .articleWrap {
+    .articleInner {
+      width: 768px;
+      .article {
+        .articleImages {
+          .imagesWrap {
+            flex-direction: column;
+            .images {
+              width: 400px;
+              flex-wrap: wrap;
+              flex-direction: row;
+              order: 1;
+              .imageWrap {
+              }
+            }
+            .imageDetail {
+              margin: 0;
+              margin-bottom: 15px;
+              img {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .articleWrap {
+    .articleInner {
+      .article {
+        flex-direction: column;
+        align-items: center;
+        .articleImages {
+          .imagesWrap {
+            margin: 0;
+            .images {
+              .imageWrap {
+              }
+            }
+            .imageDetail {
+              margin: 0;
+              margin-bottom: 15px;
+              img {
+              }
+            }
+          }
+        }
+        .articleDescriptionWrap {
+          margin-top: 30px;
+          .articleDescription {
+          }
+        }
+      }
+    }
+  }
+}

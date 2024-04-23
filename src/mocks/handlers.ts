@@ -178,4 +178,26 @@ export const handlers = [
 
     return HttpResponse.json(patchImages);
   }),
+  http.get("/api/product/trendingKeywords", () => {
+    const storageTrendingKeywords = JSON.parse(
+      localStorage.getItem("trendingKeywords") || "[]"
+    );
+    const keyword = [
+      "사무실",
+      "주방 정리",
+      "팬트리선반",
+      "등쿠션",
+      "디퓨져",
+      "이동식 행거",
+      "스타우브",
+      "작은방 꾸미기",
+      "미드센츄",
+    ];
+
+    if (storageTrendingKeywords.length === 0) {
+      localStorage.setItem("trendingKeywords", JSON.stringify(keyword));
+    }
+
+    return HttpResponse.json(storageTrendingKeywords);
+  }),
 ];
