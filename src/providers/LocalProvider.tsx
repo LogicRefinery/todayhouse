@@ -14,15 +14,6 @@ export default function LocalProvider({
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // const categories = JSON.parse(
-      //   localStorage.getItem("categoryList") as string
-      // );
-      // if (!categories) {
-      //   localStorage.setItem(
-      //     "categoryList",
-      //     `[{"id":"${uuid()}","name":"카테고리" }]`
-      //   );
-      // }
       //1.5초 설정의 이유 : require 로 불러오는 시간을 확보하기 위해..
       const browser = require("msw/browser"); //require 은 비동기식 임포트다 .
       setTimeout(() => {
