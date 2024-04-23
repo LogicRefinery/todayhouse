@@ -9,6 +9,7 @@ import Image from "next/image";
 import defaultImage from "/public/noImage.jpeg";
 import Link from "next/link";
 import { ProductSpinner } from "./ProductSpinner";
+import { useParams } from "next/navigation";
 
 function CategoryArticle({ category }: { category: Category }) {
   const productQuery = {
@@ -63,45 +64,49 @@ function CategoryArticle({ category }: { category: Category }) {
         </div>
       ) : data.length !== 0 ? (
         <div className={styles.articleProduct}>
-          {data.slice(0, 4).map((product: Product) => {
-            // 처음 4개의 상품만 출력하도록 slice 사용
-            const imageUrl = getProductImages(product);
-            return (
-              <Link
-                key={product.productId}
-                className={styles.articleLink}
-                href={`/product/${category.id}/${product.productId}`}
-              >
-                <ul className={styles.article}>
-                  <li className={styles.articleImage}>
-                    {imageUrl ? (
-                      <Image
-                        src={`data:image/*;base64,${imageUrl}`}
-                        alt={`제품사진 : ${product.productName}`}
-                        fill
-                        sizes="(max-width: 280px) 20vw"
-                      ></Image>
-                    ) : (
-                      <Image
-                        src={defaultImage}
-                        alt={`no Image`}
-                        priority
-                      ></Image>
-                    )}
-                  </li>
-                  <li className={styles.articleBrandName}>
-                    {product.brandName}
-                  </li>
-                  <li className={styles.articleProductName}>
-                    {product.productName}
-                  </li>
-                  <li className={styles.articleProductPrice}>
-                    {returnWithComma(product.productPrice)}
-                  </li>
-                </ul>
-              </Link>
-            );
-          })}
+          {data &&
+            data.map((product: Product, index: number) => {
+              // 처음 4개의 상품만 출력하도록 slice 사용
+              if (index + 1 > 4) {
+                return null;
+              }
+              const imageUrl = getProductImages(product);
+              return (
+                <Link
+                  key={product.productId}
+                  className={styles.articleLink}
+                  href={`/product/${category.id}/${product.productId}`}
+                >
+                  <ul className={styles.article}>
+                    <li className={styles.articleImage}>
+                      {imageUrl ? (
+                        <Image
+                          src={`data:image/*;base64,${imageUrl}`}
+                          alt={`제품사진 : ${product.productName}`}
+                          fill
+                          sizes="(max-width: 280px) 20vw"
+                        ></Image>
+                      ) : (
+                        <Image
+                          src={defaultImage}
+                          alt={`no Image`}
+                          priority
+                        ></Image>
+                      )}
+                    </li>
+                    <li className={styles.articleBrandName}>
+                      {product.brandName}
+                    </li>
+                    <li className={styles.articleProductName}>
+                      {product.productName}
+                    </li>
+                    <li className={styles.articleProductPrice}>
+                      {returnWithComma(product.productPrice)}
+                    </li>
+                  </ul>
+                </Link>
+              );
+            })}
         </div>
       ) : (
         <>카테고리에 등록된 상품이 없습니다. 상품을 등록해주세요.</>

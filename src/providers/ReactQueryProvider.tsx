@@ -12,13 +12,7 @@ function Provider({ children }: Props) {
   const [client] = useState(
     new QueryClient({
       defaultOptions: {
-        // react-query 전역 설정
-        queries: {
-          //   refetchOnWindowFocus: false,
-          //   retryOnMount: true,
-          //   refetchOnReconnect: false,
-          //   retry: false,
-        },
+        queries: {},
       },
     })
   );
@@ -26,9 +20,7 @@ function Provider({ children }: Props) {
   return (
     <QueryClientProvider client={client}>
       {children}
-      <ReactQueryDevtools
-      // initialIsOpen={process.env.NEXT_PUBLIC_MODE === "local"}
-      />
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
