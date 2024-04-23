@@ -1,0 +1,13 @@
+@use "scss-reset/reset";
+
+$color: red;
+
+$sr-only: (
+  font-size: 1px,
+  text-indent: -9999px,
+  color: white,
+  position: absolute,
+  left: -9999px,
+  width: 1px,
+  height: 1px,
+);

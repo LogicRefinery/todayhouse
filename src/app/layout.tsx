@@ -1,4 +1,17 @@
 import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+import "./_styles/reset.scss";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import Header from "./(todayhouse)/_components/Header";
+
+import CombineProviders from "@/providers/CombineProviders";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,8 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
-      <body>{children}</body>
+    <html className={roboto.className}>
+      <body>
+        <Header />
+        <CombineProviders>{children}</CombineProviders>
+      </body>
     </html>
   );
 }

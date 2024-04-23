@@ -1,0 +1,17 @@
+.wrap {
+  display: flex;
+
+  button {
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #999;
+    border-radius: 5px;
+    margin: 20px 10px 0 0;
+    color: white;
+
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:hover {
+      background-color: black;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.category {
+  display: flex;
+  justify-content: center;
+
+  .inner {
+    min-width: 400px;
+    .srOnly {
+      color: white;
+      text-indent: -9999px;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+    }
+  }
+}

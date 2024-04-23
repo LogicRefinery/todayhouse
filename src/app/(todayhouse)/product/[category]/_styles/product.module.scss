@@ -1,0 +1,109 @@
+.articleWrap {
+  display: flex;
+  justify-content: center;
+  .articleInner {
+    width: 1200px;
+    .articleProduct {
+      display: flex;
+      flex-wrap: wrap;
+      // justify-content: space-between;
+      box-sizing: border-box;
+      .articleLink {
+        display: block;
+        width: calc((100% - 30px) / 3);
+        text-decoration: none;
+        margin-bottom: 30px;
+        margin-right: 15px;
+        &:nth-child(3n + 3) {
+          margin-right: 0;
+        }
+
+        .article {
+          &:hover {
+            .articleImage {
+              img {
+                transform: scale(1.1); /* 이미지 크기를 1.1배로 확대합니다. */
+                transition: transform 0.3s ease; /* 호버 효과에 애니메이션을 추가합니다. */
+              }
+            }
+          }
+          .articleImage {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 10px;
+            img {
+              display: block;
+            }
+          }
+          .articleBrandName {
+            color: #757575;
+            word-break: break-all;
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 13px;
+            margin-top: 14px;
+          }
+          .articleProductName {
+            display: block;
+            margin-top: 5px;
+            word-break: break-all;
+            font-size: 13px;
+            font-weight: 400;
+            color: #000;
+          }
+          .articleProductPrice {
+            margin: 0;
+            font-size: 17px;
+            line-height: 23px;
+            font-weight: 700;
+            color: #000;
+          }
+        }
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .articleWrap {
+    .articleInner {
+      .articleProduct {
+        .articleLink {
+          width: calc((100% - 30px) / 2);
+          margin: 0 auto;
+          &:nth-child(3n + 3) {
+            margin-right: auto;
+          }
+          .article {
+          }
+          &:last-child {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .articleWrap {
+    .articleInner {
+      .articleProduct {
+        .articleLink {
+          width: calc((100% - 30px));
+          margin: 0 auto;
+          &:nth-child(3n + 3) {
+            margin-right: auto;
+          }
+          .article {
+          }
+          &:last-child {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
