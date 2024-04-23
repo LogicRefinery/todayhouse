@@ -13,7 +13,8 @@ export const handlers = [
   /*현재 전체 리스트와 검색어가 있을때를 하나의 API 엔드포인트가 도맡아서 하는데 두개로 분리하자. 원칙적으로는 따로 하는것이 맞음*/
 
   http.get("/api/admin/category", async ({ request }) => {
-    const categories = JSON.parse(localStorage.getItem("categoryList") || "{}");
+    const categories = JSON.parse(localStorage.getItem("categoryList") || "[]");
+
     const url = new URL(request.url);
     const searchTerm = url.searchParams.get("search");
     const filteredCategories = searchTerm
@@ -127,6 +128,7 @@ export const handlers = [
   http.get("/api/admin/product/images", ({ request }) => {
     const url = new URL(request.url);
     const id = url.searchParams.get("id");
+    console.log("아이디", id);
     const images = JSON.parse(localStorage.getItem("images") || "[]");
     let filteredImages;
 

@@ -31,6 +31,7 @@ function CategoryForm() {
 
   const isCategoryNameDuplicate = () => {
     const categories = queryClient.getQueryData(queryKey) as CategoryList;
+    console.log(categories);
     const isDuplicate = categories.find((category) => {
       return category.name === categoryName;
     });

@@ -24,6 +24,19 @@ export default function LocalProvider({
         setIsLoading(false);
       }, 1500);
     }
+
+    if (localStorage.getItem("categoryList") === null || "[]") {
+      localStorage.setItem(
+        "categoryList",
+        '[{"id":"1","name":"기본 카테고리"}]'
+      );
+    }
+    if (localStorage.getItem("trendingKeywords") === null) {
+      localStorage.setItem(
+        "trendingKeywords",
+        '["사무실","주방정리","팬트리 선반","등쿠션","디퓨저","이동식 행거","스타우브","작은방 꾸미기","미드센츄"]'
+      );
+    }
   }, []);
 
   return <>{isLoading ? <MswLoadingSpinner /> : children}</>;

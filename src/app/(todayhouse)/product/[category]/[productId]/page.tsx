@@ -11,14 +11,13 @@ function Page() {
   const { category: categoryId, productId } = useParams();
   const [detailImage, setDetailImage] = useState<string>("");
 
-  // 최초 렌더링시 가장 첫번째 이미지가 디테일 이미지에 렌더링 되야됨
-
   const { data, isLoading } = useQueryGetData({
     queryKey: ["admin", "products", `${productId}`],
     requestUrl: `/api/admin/product?id=${encodeURIComponent(`${productId}`)}`,
     gcTime: 6 * 10000,
     staleTime: 12 * 10000,
   });
+  console.log(data);
 
   const { data: imageData, isLoading: imageIsLoading } = useQueryGetData({
     queryKey: ["admin", "products", "image", `${data?.productImagesId}`],
@@ -29,6 +28,7 @@ function Page() {
     staleTime: 12 * 10000,
     enabled: !!data?.productImagesId,
   });
+
   useEffect(() => {
     if (imageData && imageData.mainImage) {
       setDetailImage(imageData.mainImage);
