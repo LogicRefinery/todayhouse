@@ -17,7 +17,6 @@ function Page() {
     gcTime: 6 * 10000,
     staleTime: 12 * 10000,
   });
-  console.log(data);
 
   const { data: imageData, isLoading: imageIsLoading } = useQueryGetData({
     queryKey: ["admin", "products", "image", `${data?.productImagesId}`],
