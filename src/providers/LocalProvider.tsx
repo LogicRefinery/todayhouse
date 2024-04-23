@@ -26,11 +26,14 @@ export default function LocalProvider({
     }
 
     if (localStorage.getItem("categoryList") === null || "[]") {
+      console.log("돌아가냐 ?");
+
       localStorage.setItem(
         "categoryList",
         '[{"id":"1","name":"기본 카테고리"}]'
       );
     }
+
     if (localStorage.getItem("trendingKeywords") === null) {
       localStorage.setItem(
         "trendingKeywords",
