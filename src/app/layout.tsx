@@ -14,6 +14,7 @@ import Header from "./(todayhouse)/_components/Header";
 import CombineProviders from "@/providers/CombineProviders";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://todayhouse.vercel.app"),
   title: "THMall",
   description: "세상에서 가장 저렴한 상점",
   category: "온라인 마켓",
