@@ -10,6 +10,19 @@ THMall
 프론트엔드 서비스 아키텍처
 ![image](https://github.com/LogicRefinery/todayhouse/assets/96185872/1f2c6492-8932-4997-a586-1ce34730dbc5)
 
+![msw 로딩](https://github.com/LogicRefinery/todayhouse/assets/96185872/4d6e5a75-a349-4c83-b9d7-5c2cb95fe957)
+![카테고리 추가](https://github.com/LogicRefinery/todayhouse/assets/96185872/f1b2cfb4-58a2-4798-a934-d8cc3fb401ce)
+![카테고리 삭제](https://github.com/LogicRefinery/todayhouse/assets/96185872/47bec07a-b3fe-45d8-bbf7-966036f36bdb)
+![카테고리 검색](https://github.com/LogicRefinery/todayhouse/assets/96185872/253b5a57-bd30-45b9-9ea2-4c93fd1f57b9)
+![상품 추가](https://github.com/LogicRefinery/todayhouse/assets/96185872/efddab80-3ad1-4ce8-8bba-0ed8fb8a829a)
+![상품 수정](https://github.com/LogicRefinery/todayhouse/assets/96185872/e02aa1c5-046a-40f2-b1b0-df5428657726)
+![상품 삭제](https://github.com/LogicRefinery/todayhouse/assets/96185872/2f138581-d964-444e-8c31-b41ba422d22f)
+![상품 필터링](https://github.com/LogicRefinery/todayhouse/assets/96185872/b778a912-34a8-412b-b1f5-26a3805d4dcf)
+![유저사이드 메인](https://github.com/LogicRefinery/todayhouse/assets/96185872/7d74ec86-ab62-473a-8622-f63b4786f8ff)
+![유저사이드 서브](https://github.com/LogicRefinery/todayhouse/assets/96185872/8b84f89d-1b01-4f87-a23b-9468ae8c2de0)
+![유저사이드 상세](https://github.com/LogicRefinery/todayhouse/assets/96185872/4e74dd5f-4de2-41b9-85d9-695266d3d722)
+
+
 
 
 
