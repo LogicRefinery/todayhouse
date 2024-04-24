@@ -16,7 +16,7 @@
 
 ## 메인
 ### MSW 로딩<br>
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/4d6e5a75-a349-4c83-b9d7-5c2cb95fe957" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/fe6abe92-d89e-4c91-8a1d-c38c8426f896" width="100%"/>
 
 #### 주요 기능
 1. MSW가 안정적으로 서비스워커를 실행하는 시점까지 대기합니다.
@@ -31,7 +31,7 @@
 ## 어드민 사이드
 
 ### 카테고리 추가
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/f1b2cfb4-58a2-4798-a934-d8cc3fb401ce" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/6c56d0b7-9d83-4a19-8d21-ebaba9c2dc17" width="100%"/>
 
 #### 주요 기능
 1. 카테고리를 추가합니다.
@@ -40,7 +40,7 @@
 
 ### 카테고리 삭제
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/47bec07a-b3fe-45d8-bbf7-966036f36bdb" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/b6d6f43d-cc04-4982-8cd2-631f2a0bfcb5" width="100%"/>
 
 #### 주요 기능
 1. 카테고리를 삭제합니다.
@@ -49,7 +49,7 @@
 
 ### 카테고리 검색
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/253b5a57-bd30-45b9-9ea2-4c93fd1f57b9" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/56d8a45c-aa87-431c-b2c5-35259728abd4" width="100%"/>
 
 #### 주요 기능
 1. 카테고리를 검색합니다.
@@ -58,7 +58,7 @@
 
 ### 상품 추가
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/efddab80-3ad1-4ce8-8bba-0ed8fb8a829a" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/ffff0f9d-5d9a-4fb2-aa26-acee4f0d084d" width="100%"/>
 
 ### 주요 기능
 1. 상품을 추가합니다.
@@ -70,7 +70,7 @@
 
 ### 상품 수정
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/e02aa1c5-046a-40f2-b1b0-df5428657726" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/64412e6d-fcfe-4551-a8e4-0d0f4c0a4273" width="100%"/>
 
 #### 주요 기능
 1. 상품을 수정합니다.
@@ -79,7 +79,7 @@
 
 ### 상품 삭제
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/2f138581-d964-444e-8c31-b41ba422d22f" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/1133c9f8-4d21-4220-a5a7-1b34ad92f697" width="100%"/>
 
 #### 주요 기능
 1. 상품을 삭제합니다.
@@ -88,7 +88,7 @@
 
 ### 상품 필터링
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/b778a912-34a8-412b-b1f5-26a3805d4dcf" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/740cc808-c363-4900-8c8d-e912e5411068" width="100%"/>
 
 #### 주요 기능
 1. 지정한 카테고리로 상품을 필터링합니다.
@@ -98,7 +98,7 @@
 
 ### 메인
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/7d74ec86-ab62-473a-8622-f63b4786f8ff" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/c4972858-512f-42a3-b5dc-b29bc6c4ce00" width="100%"/>
 
 #### 주요 기능
 1. 등록된 카테고리별로 4개의 상품을 볼 수 있습니다.
@@ -111,7 +111,7 @@
 
 ### 카테고리별 서브
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/8b84f89d-1b01-4f87-a23b-9468ae8c2de0" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/18253172-e01e-416f-9e1b-8f6aaddd8c5a" width="100%"/>
 
 #### 주요 기능
 1. 카테고리별 상품들을 볼 수 있습니다.
@@ -119,14 +119,10 @@
 
 ### 상품 상세페이지
 
-<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/4e74dd5f-4de2-41b9-85d9-695266d3d722" width="80%"/>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/eb86b9af-749e-4c95-a7f8-1283ec61dcf5" width="100%"/>
 
 #### 주요 기능
 1. 각 상품의 상세정보를 볼 수 있습니다.
 2. 좌측 작은 이미지 클릭시 디테일 이미지가 변경됩니다.
-
-
-
-
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=64d8fe&height=150&section=footer" />
