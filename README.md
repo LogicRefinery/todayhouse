@@ -16,8 +16,7 @@
 
 ## 메인
 ### MSW 로딩<br>
-
-![msw 로딩](https://github.com/LogicRefinery/todayhouse/assets/96185872/4d6e5a75-a349-4c83-b9d7-5c2cb95fe957)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/4d6e5a75-a349-4c83-b9d7-5c2cb95fe957" width="80%"/>
 
 #### 주요 기능
 1. MSW가 안정적으로 서비스워커를 실행하는 시점까지 대기합니다.
@@ -25,38 +24,41 @@
 #### 라우팅
 1. 어드민 사이드
 2. 유저 사이드
+<br>
 
 ---
 
 ## 어드민 사이드
 
 ### 카테고리 추가
-
-<br>![카테고리 추가](https://github.com/LogicRefinery/todayhouse/assets/96185872/f1b2cfb4-58a2-4798-a934-d8cc3fb401ce)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/f1b2cfb4-58a2-4798-a934-d8cc3fb401ce" width="80%"/>
 
 #### 주요 기능
 1. 카테고리를 추가합니다.
 2. 이름이 같은 카테고리는 추가할 수 없습니다.
+<br>
 
 ### 카테고리 삭제
 
-<br>![카테고리 삭제](https://github.com/LogicRefinery/todayhouse/assets/96185872/47bec07a-b3fe-45d8-bbf7-966036f36bdb)
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/47bec07a-b3fe-45d8-bbf7-966036f36bdb" width="80%"/>
 
 #### 주요 기능
 1. 카테고리를 삭제합니다.
 2. 상품이 등록되어있는 카테고리는 삭제가 불가능합니다.
+<br>
 
 ### 카테고리 검색
 
-<br>![카테고리 검색](https://github.com/LogicRefinery/todayhouse/assets/96185872/253b5a57-bd30-45b9-9ea2-4c93fd1f57b9)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/253b5a57-bd30-45b9-9ea2-4c93fd1f57b9" width="80%"/>
 
 #### 주요 기능
 1. 카테고리를 검색합니다.
 2. 디바운싱이 적용되어 사용자의 입력 직후 0.5초 API요청 딜레이가 있습니다.
+<br>
 
 ### 상품 추가
 
-<br>![상품 추가](https://github.com/LogicRefinery/todayhouse/assets/96185872/efddab80-3ad1-4ce8-8bba-0ed8fb8a829a)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/efddab80-3ad1-4ce8-8bba-0ed8fb8a829a" width="80%"/>
 
 ### 주요 기능
 1. 상품을 추가합니다.
@@ -64,36 +66,39 @@
 3. 벨리데이트 : 최초 서브밋 전까지는 검증하지 않습니다. 최초 서브밋 이후에 실시간으로 검증합니다.
 4. 대표이미지 설정이 가능합니다.
 5. 이미지 프로세싱 : 이미지를 압축하고, 로컬스토리지에 저장하기위해 base4 형식으로 인코딩합니다.
+<br>
 
 ### 상품 수정
 
-<br>![상품 수정](https://github.com/LogicRefinery/todayhouse/assets/96185872/e02aa1c5-046a-40f2-b1b0-df5428657726)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/e02aa1c5-046a-40f2-b1b0-df5428657726" width="80%"/>
 
 #### 주요 기능
 1. 상품을 수정합니다.
 2. 새로 추가되는 이미지만 이미지 프로세싱이 진행됩니다.
+<br>
 
 ### 상품 삭제
 
-<br>![상품 삭제](https://github.com/LogicRefinery/todayhouse/assets/96185872/2f138581-d964-444e-8c31-b41ba422d22f)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/2f138581-d964-444e-8c31-b41ba422d22f" width="80%"/>
 
 #### 주요 기능
 1. 상품을 삭제합니다.
 2. 상품과 연동되어있는 이미지도 삭제됩니다.
+<br>
 
 ### 상품 필터링
 
-<br>![상품 필터링](https://github.com/LogicRefinery/todayhouse/assets/96185872/b778a912-34a8-412b-b1f5-26a3805d4dcf)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/b778a912-34a8-412b-b1f5-26a3805d4dcf" width="80%"/>
 
 #### 주요 기능
 1. 지정한 카테고리로 상품을 필터링합니다.
-
+<br>
 
 ## 유저사이드
 
 ### 메인
 
-<br>![유저사이드 메인](https://github.com/LogicRefinery/todayhouse/assets/96185872/7d74ec86-ab62-473a-8622-f63b4786f8ff)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/7d74ec86-ab62-473a-8622-f63b4786f8ff" width="80%"/>
 
 #### 주요 기능
 1. 등록된 카테고리별로 4개의 상품을 볼 수 있습니다.
@@ -102,17 +107,19 @@
 #### 라우팅
 1. 메뉴 or 더보기 클릭시 카테고리별 메뉴로 서브페이지로 이동
 2. 상품 클릭시 상품 상세페이지로 이동
+<br>
 
 ### 카테고리별 서브
 
-<br>![유저사이드 서브](https://github.com/LogicRefinery/todayhouse/assets/96185872/8b84f89d-1b01-4f87-a23b-9468ae8c2de0)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/8b84f89d-1b01-4f87-a23b-9468ae8c2de0" width="80%"/>
 
 #### 주요 기능
 1. 카테고리별 상품들을 볼 수 있습니다.
+<br>
 
 ### 상품 상세페이지
 
-<br>![유저사이드 상세](https://github.com/LogicRefinery/todayhouse/assets/96185872/4e74dd5f-4de2-41b9-85d9-695266d3d722)<br>
+<img src="https://github.com/LogicRefinery/todayhouse/assets/96185872/4e74dd5f-4de2-41b9-85d9-695266d3d722" width="80%"/>
 
 #### 주요 기능
 1. 각 상품의 상세정보를 볼 수 있습니다.
