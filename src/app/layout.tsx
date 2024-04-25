@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     siteName: "Next.js",
     images: [
       {
-        url: "https://todayhouse.vercel.app/productMain.jpeg",
+        url: "https://todayhouse.vercel.app/ogimage.jpg",
         width: 800,
         height: 600,
         alt: "THMall 메인 이미지",
       },
       {
-        url: "https://todayhouse.vercel.app/productMain.jpeg",
+        url: "https://todayhouse.vercel.app/ogimage.jpg",
         width: 1800,
         height: 1600,
         alt: "THMall 메인 이미지",

@@ -10,7 +10,7 @@ const Header = () => {
         <h1>
           <Link href={"/"}>
             <FontAwesomeIcon icon={faHouse} />
-            thmall
+            THMall
           </Link>
         </h1>
       </div>
