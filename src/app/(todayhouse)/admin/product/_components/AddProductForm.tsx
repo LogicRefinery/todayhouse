@@ -16,6 +16,7 @@ import defaultImage from "/public/noImage.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { ImageProcessingSpinner } from "./ImageProcessingSpinner";
+import { blobToBase64 } from "@/app/(todayhouse)/_utill/imageProcess";
 
 function AddProductForm() {
   const createProductMutation = useCreateProduct();
@@ -25,23 +26,6 @@ function AddProductForm() {
   const [imageCountClass, setImageCountClass] = useState<string>("");
   const [mainImage, setMainImage] = useState<string>("");
   const [isImageProcessing, setIsImageProcessing] = useState<boolean>();
-
-  function blobToBase64(blob: Blob) {
-    let base64 = "";
-    return new Promise((res, rej) => {
-      const reader = new FileReader();
-      reader.onload = function () {
-        const dataUrl = reader.result as string;
-        base64 = dataUrl.split(",")[1];
-        res(base64);
-      };
-
-      reader.onloadend = function () {
-        rej(new Error("이미지 변환을 실패하였습니다."));
-      };
-      reader.readAsDataURL(blob);
-    });
-  }
 
   useEffect(() => {
     const className =

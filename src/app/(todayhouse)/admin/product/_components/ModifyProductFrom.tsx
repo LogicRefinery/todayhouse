@@ -16,23 +16,7 @@ import defaultImage from "/public/noImage.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { ImageProcessingSpinner } from "./ImageProcessingSpinner";
-
-function blobToBase64(blob: Blob) {
-  let base64 = "";
-  return new Promise((res, rej) => {
-    const reader = new FileReader();
-    reader.onload = function () {
-      const dataUrl = reader.result as string;
-      base64 = dataUrl.split(",")[1];
-      res(base64);
-    };
-
-    reader.onloadend = function () {
-      rej(new Error("이미지 변환을 실패하였습니다."));
-    };
-    reader.readAsDataURL(blob);
-  });
-}
+import { blobToBase64 } from "@/app/(todayhouse)/_utill/imageProcess";
 
 function ModifyProductFrom({
   productId,
@@ -95,22 +79,6 @@ function ModifyProductFrom({
   } = useForm<any>({
     defaultValues: {},
   });
-
-  // const setDefaultValues = (v: any) => {
-  //   reset(v);
-  // };
-
-  // const queryFn = () => {
-
-  // }
-  // const { data: defaultValues } = useQueryGetDefaultData({
-  //   queryKey: ["admin", "products", "defaultValue"],
-  //   requestUrl: `/api/admin/product?id=${encodeURIComponent(productId)}`,
-  //   gcTime: 10000,
-  //   staleTime: 10000,
-  //   setDefaultValues,
-  //   queryFn,
-  // });
 
   useEffect(() => {
     if (productImageSingleData) {
