@@ -9,7 +9,7 @@
 }
 .overlay {
   display: flex;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -18,9 +18,12 @@
   z-index: 6;
 }
 .wrap {
-  position: absolute;
-  width: 600px;
-  height: 1000px;
+  position: fixed;
+  width: 90vw;
+  min-width: 200px;
+  max-width: 600px;
+  height: 90vh;
+  max-height: 1000px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -115,7 +118,6 @@
         margin-top: 20px;
         fieldset {
           .formWrap {
-            width: 300px;
             .formRow {
               width: 100%;
               margin-bottom: 5px;
@@ -187,12 +189,9 @@
                 }
               }
               &:last-child {
-                position: absolute;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
                 width: 70px;
                 height: 40px;
+                margin: 20px auto;
                 .formSubmitDisabled {
                   display: block;
                   width: 70px;
@@ -236,6 +235,51 @@
         padding: 5px 10px;
         border-radius: 15px;
         color: white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .body {
+      .prevImageWrap {
+        .prevImageBoxUl {
+          .prevImageBoxLi {
+            &.singleImage {
+            }
+            &.multipleImageSmall {
+            }
+            &.multipleImageLarge {
+            }
+          }
+        }
+      }
+    }
+    form {
+      fieldset {
+        .formWrap {
+          .formRow {
+            .formInput {
+              input,
+              select {
+              }
+            }
+            &:nth-last-child(2) {
+              .selectShipping {
+                .formInput {
+                }
+                .formLabel {
+                }
+              }
+            }
+            &:last-child {
+              .formSubmit,
+              .formSubmitDisabled {
+              }
+            }
+          }
+        }
       }
     }
   }

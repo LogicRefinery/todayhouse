@@ -32,7 +32,7 @@
             background-color: rgb(77, 165, 194);
           }
         }
-        .productWarp {
+        .productWrap {
           position: relative;
           cursor: pointer;
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
@@ -143,6 +143,17 @@
       .ul {
         .li {
           width: calc(50% - 20px);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  .wrap {
+    .inner {
+      .ul {
+        .li {
+          width: calc(100% - 20px);
         }
       }
     }

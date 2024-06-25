@@ -9,7 +9,7 @@
 }
 .overlay {
   display: flex;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -18,17 +18,18 @@
   z-index: 1;
 }
 .wrap {
-  position: absolute;
-  width: 600px;
-  height: 300px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
   z-index: 999;
 
   .container {
     display: flex;
     flex-direction: column;
+    flex-basis: 560px;
     height: 100%;
     background-color: white;
     padding: 20px;
@@ -44,13 +45,12 @@
       }
     }
     .body {
-      flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
       > div {
         font-size: 14px;
         margin: 20px 0 20px 0;
+        text-align: center;
       }
 
       overflow-y: auto;
@@ -61,30 +61,38 @@
         @include sr-only;
       }
       form {
+        display: flex;
         margin-top: 20px;
-        border: 1px solid #666;
-        border-radius: 10px;
-        #categoryName {
-          min-width: 300px;
-          height: 40px;
-          border-radius: 10px;
-          padding-left: 10px;
+        fieldset {
+          display: flex;
+          flex: 1;
+          justify-content: center;
 
-          border: none;
-          &::placeholder {
-            color: rgba($color: #333, $alpha: 0.3);
+          #categoryName {
+            height: 40px;
+            border-radius: 10px 0 0 10px;
+            padding-left: 10px;
+            flex-basis: 300px;
+            border: 1px solid #333;
+            border-right: none;
+
+            // border: none;
+            &::placeholder {
+              color: rgba($color: #333, $alpha: 0.3);
+              font-size: 14px;
+            }
           }
-        }
-        .addBtn {
-          background-color: #666;
-          height: 41px;
-          width: 50px;
-          border-radius: 0 8px 8px 0;
-          color: white;
-          font-weight: 700;
-          transition: all 0.2s;
-          &:hover {
-            background-color: black;
+          .addBtn {
+            background-color: #666;
+            height: 40px;
+            padding: 0 10px;
+            border-radius: 0 8px 8px 0;
+            color: white;
+            font-weight: 700;
+            transition: all 0.2s;
+            &:hover {
+              background-color: black;
+            }
           }
         }
       }
@@ -92,6 +100,7 @@
     .footer {
       display: flex;
       justify-content: flex-end;
+      margin-top: 20px;
       .closeBtn {
         background-color: #999;
         padding: 5px 10px;

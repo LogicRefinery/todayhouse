@@ -1,12 +1,13 @@
 .wrap {
   display: flex;
+  justify-content: flex-end;
 
   button {
     font-size: 16px;
     padding: 5px 10px;
     background-color: #999;
     border-radius: 5px;
-    margin: 20px 10px 0 0;
+    margin: 20px 0 0 10px;
     color: white;
 
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);

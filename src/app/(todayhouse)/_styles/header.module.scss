@@ -1,18 +1,53 @@
-.warp {
+.wrap {
   .inner {
     display: flex;
     justify-content: center;
     background-color: rgb(100, 216, 254);
     h1 {
       font-size: 40px;
+      transition: all 0.2s;
       svg {
-        padding: 0 10px 0 0;
+        width: 50px;
+        height: 50px;
+        transition: all 0.2s;
       }
       a {
         display: flex;
         text-decoration: none;
         color: white;
         padding: 20px 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .wrap {
+    .inner {
+      h1 {
+        font-size: 26px;
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+        a {
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    .inner {
+      h1 {
+        font-size: 20px;
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+        a {
+        }
       }
     }
   }

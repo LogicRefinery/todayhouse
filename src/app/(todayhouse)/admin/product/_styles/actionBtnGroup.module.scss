@@ -1,4 +1,3 @@
-// rgb(100, 216, 254);
 .wrap {
   .inner {
     max-width: 1200px;
@@ -28,6 +27,28 @@
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       &:hover {
         background-color: black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .wrap {
+    .inner {
+      flex-direction: column;
+      align-items: center;
+      label {
+      }
+      #selectCategory {
+        margin-bottom: 5px;
+        option {
+        }
+      }
+      button {
+        width: calc(100% - 20px);
+        margin: 5px 0;
+        &:hover {
+        }
       }
     }
   }

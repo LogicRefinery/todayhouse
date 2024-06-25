@@ -27,10 +27,11 @@ function TrendingKeywords() {
     autoplaySpeed: 2000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
     pauseOnHover: true, // 슬라이드 이동	시 마우스 호버하면 슬라이더 멈추게 설정
     vertical: true, // 세로 방향 슬라이드 옵션
+    arrows: false,
   };
 
   return (
-    <ul className={styles.trendingKeywordsUl}>
+    <div className={styles.trendingKeywords}>
       {isLoading ? (
         <>..키워드 로딩중</>
       ) : (
@@ -38,17 +39,17 @@ function TrendingKeywords() {
           {data &&
             data.map((keyword: string, index: number) => {
               return (
-                <li key={keyword}>
+                <div key={keyword}>
                   <Link href={`/product?search=${keyword}`}>
                     <p className={styles.rank}>{index + 1}</p>
                     <p className={styles.keyword}>{keyword}</p>
                   </Link>
-                </li>
+                </div>
               );
             })}
         </Slider>
       )}
-    </ul>
+    </div>
   );
 }
 

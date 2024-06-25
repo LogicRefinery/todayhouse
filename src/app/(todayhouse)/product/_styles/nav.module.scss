@@ -7,7 +7,7 @@
   margin: 20px 0;
   .navInner {
     display: flex;
-    min-width: 1200px;
+    flex-basis: 1200px;
     .nav {
       flex: 1;
       .navUl {
@@ -21,6 +21,7 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: 700;
+            white-space: nowrap;
 
             &.active {
               color: #000;
@@ -34,11 +35,11 @@
         }
       }
     }
-    .trendingKeywordsUl {
+    .trendingKeywords {
       width: 120px;
       display: flex;
       align-items: center;
-      li {
+      div {
         a {
           display: flex;
           justify-content: space-around;
@@ -54,29 +55,29 @@
     }
   }
 }
-@media screen and (max-width: 1200px) {
-  .navWrap {
-    .navInner {
-      min-width: 768px;
-      .nav {
-        .navUl {
-        }
-      }
-      .trendingKeywordsUl {
-      }
-    }
-  }
-}
-@media screen and (max-width: 576px) {
-  .navWrap {
-    .navInner {
-      min-width: 576px;
-      .nav {
-        .navUl {
-        }
-      }
-      .trendingKeywordsUl {
-      }
-    }
-  }
-}
+// @media screen and (max-width: 1200px) {
+//   .navWrap {
+//     .navInner {
+//       // min-width: 768px;
+//       .nav {
+//         .navUl {
+//         }
+//       }
+//       .trendingKeywordsUl {
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 576px) {
+//   .navWrap {
+//     .navInner {
+//       // min-width: 576px;
+//       .nav {
+//         .navUl {
+//         }
+//       }
+//       .trendingKeywordsUl {
+//       }
+//     }
+//   }
+// }

@@ -5,7 +5,7 @@ import styles from "../_styles/header.module.scss";
 
 const Header = () => {
   return (
-    <header className={styles.warp}>
+    <header className={styles.wrap}>
       <div className={styles.inner}>
         <h1>
           <Link href={"/"}>

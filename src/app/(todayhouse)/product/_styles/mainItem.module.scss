@@ -4,7 +4,7 @@
   margin-bottom: 50px;
   .mainItemContainerInner {
     display: flex;
-    width: 1200px;
+    flex-basis: 1200px;
     height: 508px;
     .mainItem {
       display: flex;
@@ -16,6 +16,7 @@
         display: flex;
         width: 100%;
         .mainItemImage {
+          // aspect-ratio: 1;
           width: 100%;
           position: relative;
           img {
@@ -58,9 +59,10 @@
 @media screen and (max-width: 1200px) {
   .mainItemContainerWrap {
     .mainItemContainerInner {
-      width: 768px;
+      // width: 768px;
+      justify-content: center;
       .mainItem {
-        width: 100%;
+        // width: 100%;
         margin: 0;
       }
       .event {

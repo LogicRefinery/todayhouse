@@ -6,16 +6,19 @@
       font-size: 20px;
       font-weight: bold;
       margin-top: 40px;
+      transition: all 0.2s;
     }
+
     .nav {
-      display: flex;
-      justify-content: center;
       ul {
         display: flex;
+        justify-content: center;
+
         li {
           display: flex;
           flex-direction: column;
           align-items: center;
+          flex-basis: 400px;
 
           a {
             text-decoration: none;
@@ -25,18 +28,68 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 400px;
-            height: 400px;
+            width: calc(100% - 20px);
+            aspect-ratio: 1;
             border-radius: 15px;
             background: #999;
             margin: 20px 20px;
             transition: all 0.2s;
+
             &:hover {
               background: #666;
               transition: all 0.1s;
             }
           }
+
           p {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .wrap {
+    .inner {
+      .title {
+        font-size: 16px;
+      }
+      .nav {
+        ul {
+          li {
+            a {
+              font-size: 16px;
+              &:hover {
+              }
+            }
+
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    .inner {
+      .title {
+        font-size: 14px;
+      }
+      .nav {
+        ul {
+          li {
+            a {
+              font-size: 14px;
+              &:hover {
+              }
+            }
+
+            p {
+            }
           }
         }
       }

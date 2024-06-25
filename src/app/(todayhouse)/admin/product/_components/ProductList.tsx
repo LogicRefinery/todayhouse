@@ -68,7 +68,7 @@ export const ProductList = ({ searchTerm, checkboxes, checkToggle }: Prop) => {
                 <li key={product.productId} className={styles.li}>
                   <ModifyProductBtn productId={product.productId} />
 
-                  <div className={styles.productWarp}>
+                  <div className={styles.productWrap}>
                     <input
                       type="checkbox"
                       className={styles.productCheckbox}

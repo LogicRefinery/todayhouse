@@ -13,11 +13,9 @@
         transition: all 0.2s;
         &.active {
           color: #333;
-          // text-decoration: underline;
         }
         &:hover {
           color: #333;
-          // text-decoration: underline;
           transition: all 0.1s;
         }
       }

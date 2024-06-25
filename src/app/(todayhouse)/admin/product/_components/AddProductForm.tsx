@@ -148,41 +148,6 @@ function AddProductForm() {
 
   return (
     <>
-      {/*
-      form 의 onSubmit 속성에 handleSubmit(()=>{}) 함수를 매핑할 수 있다.
-      handleSubmit 함수는 콜백함수를 매개변수로 받고 콜백함수의 첫번째 인자로 form 내부의 input 요소들을 key:value 형태로 취득한다.
-      ex : { id:'input',password:'1234' }
-      */}
-      {/*
-        ...함수() : 함수 실행문에 스프레드 연산자를 사용하면 함수가 리턴하는 객체 or 배열을 풀어낼 수 있다.
-        register('입력값') 함수는 객체를 반환하는데 아마도 {name:'입력값'} 일 것이다.
-        {...{name:'입력값'}} 으로 해석되므로 {namn='입력값'} 이 될 것이다. 
-
-        register() 함수의 옵션 : {...register('입력값',{required: '필수입니다', pattern:{value:정규식,message:'형식에 맞지 않습니다.'}})}
-        입력값 검증에 실패하면 : useFrom 에서 반환하는 객체중 formState:{errors} 객체에 들어가게 됩니다.
-        {errors.name && <div>errors.email.message</div>} 형식으로 사용합니다.
-        
-        입력값 검증에 실패하면 붉은색 테두리, 성공하면 초록색 테두리를 보여준다. 한번이라도 서브밋을 클릭해야 반영는 속성 추가
-        aria-invalid={isSubmitted ? ( errors.email ? "true" : false) : undefined}
-        */}
-
-      {/* 
-      form 제출의 경우 서버와 통신이 끝나기전에 사용자가 여러번 submit 버튼을 누르는 것을 방지해야합니다.
-      왜? 결제 버튼이라는 가정하에 여러번 요청이가면 결제가 여러번 될수도있겠죠 ?
-      방법 1 : 서버와 통신중에는 submit 버튼을 비활성화 한다.
-      방법 2 : 디바운싱 or 쓰로틀링을 이용하여 사용자에게 submit 에 대한 요청을 제한한다. 
-
-      useFrom 이 반환하는 객체 중 formState: { isSubmitting } 이라는 통신중인 상태를 boolean 으로 반환하는 객체가 있습니다.
-      <input type="submit" disabled={isSubmitting} /> 이런식으로 통신중에 비활성화 할 수 있습니다.
-
-      useFrom 이 반환하는 객체 중 formState: { isSubmitted } 속성은 사용자가 한번이라도 submit 을 클릭햇냐를 boolean 으로 반환합니다.
-
-      */}
-
-      {/* 별점, 리뷰 갯수는 추후 사용자가 정한다. 별점 1~5 ( 소수점 불가 ), 리뷰갯수 카운팅 */}
-
-      {/* 스피너를 이미지 하나마다 띄워주려면 각 이미지가 변환되는 동안 스테이트를 각 이미지별로 관리해야됨 */}
-
       <div className={styles.prevImageWrap}>
         {encodedImages.length === 0 ? (
           <Image src={defaultImage} alt="No Image" width={300} height={300} />
@@ -239,10 +204,6 @@ function AddProductForm() {
         )}
       </div>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
-        {/* 
-            커스텀 훅으로 빼면 코드량 확 줄 일 수 있긴해, 그리고 지금 이 타이밍이 리팩토링 타이밍. 
-            코드 줄 수가 많이 늘어지고, 기능구현이 어느정도 되었을 때.
-        */}
         <fieldset>
           <legend>상품추가 폼</legend>
           <div className={styles.formWrap}>

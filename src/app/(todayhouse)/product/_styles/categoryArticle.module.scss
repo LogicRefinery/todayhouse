@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   .categoryArticleInner {
-    width: 1200px;
     display: flex;
+    flex-basis: 1200px;
     flex-direction: column;
     .spinnerWrap {
       display: flex;
@@ -87,6 +87,102 @@
               line-height: 23px;
               font-weight: 700;
               color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .categoryArticleWrap {
+    .categoryArticleInner {
+      .spinnerWrap {
+        p {
+        }
+      }
+      .articleWrap {
+        .articleTitle {
+          h4 {
+          }
+          a {
+          }
+        }
+
+        .articleProduct {
+          flex-wrap: wrap;
+          .articleLink {
+            margin: 0 auto;
+            width: calc(100% / 2 - 20px);
+            &:last-child {
+              // margin-left: 10px;
+            }
+            .article {
+              &:hover {
+                .articleImage {
+                  img {
+                  }
+                }
+              }
+              .articleImage {
+                img {
+                }
+              }
+              .articleBrandName {
+              }
+              .articleProductName {
+              }
+              .articleProductPrice {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .categoryArticleWrap {
+    .categoryArticleInner {
+      .spinnerWrap {
+        p {
+        }
+      }
+      .articleWrap {
+        .articleTitle {
+          h4 {
+          }
+          a {
+          }
+        }
+
+        .articleProduct {
+          flex-wrap: wrap;
+          .articleLink {
+            margin: 0 auto;
+            width: calc(100% - 10px);
+            &:last-child {
+              // margin-left: 10px;
+            }
+            .article {
+              &:hover {
+                .articleImage {
+                  img {
+                  }
+                }
+              }
+              .articleImage {
+                img {
+                }
+              }
+              .articleBrandName {
+              }
+              .articleProductName {
+              }
+              .articleProductPrice {
+              }
             }
           }
         }
