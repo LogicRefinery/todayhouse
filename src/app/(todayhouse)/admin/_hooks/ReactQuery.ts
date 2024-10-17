@@ -233,9 +233,7 @@ const fetchCreateImages = async (images: Images) => {
 export function useCreateImages() {
   const mutation = useMutation({
     mutationFn: (images: Images) => fetchCreateImages(images),
-    onSuccess(response) {
-      // 완료됐을 때 머하지 ?
-    },
+    onSuccess(response) {},
   });
   return { mutation };
 }

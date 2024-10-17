@@ -19,11 +19,6 @@ export const metadata: Metadata = {
   description: "세상에서 가장 저렴한 상점",
   category: "온라인 마켓",
   keywords: ["옷", "의류", "패션"],
-  // openGraph: {
-  //   title: "THMall",
-  //   description: "세상에서 가장 저렴한 온라인 마켓",
-  //   images: ["/productMain.jpeg"],
-  // },
   icons: {
     icon: "/favicon.png",
   },
@@ -31,7 +26,7 @@ export const metadata: Metadata = {
     title: "THMall",
     description: "세상에서 가장 저렴한 상점",
     url: "https://todayhouse.vercel.app",
-    siteName: "Next.js",
+    siteName: "THMall",
     images: [
       {
         url: "https://todayhouse.vercel.app/ogimage.jpg",

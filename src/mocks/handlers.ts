@@ -22,7 +22,6 @@ export const handlers = [
           category.name.includes(searchTerm)
         )
       : categories;
-
     // 검색어가 있을 때만 1초의 지연을 추가
     if (searchTerm) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
