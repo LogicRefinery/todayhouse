@@ -127,7 +127,6 @@ export const handlers = [
   http.get("/api/admin/product/images", ({ request }) => {
     const url = new URL(request.url);
     const id = url.searchParams.get("id");
-    console.log("아이디", id);
     const images = JSON.parse(localStorage.getItem("images") || "[]");
     let filteredImages;
 

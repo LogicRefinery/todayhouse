@@ -13,7 +13,6 @@ function TrendingKeywords() {
     queryFn: async () => {
       const res = await fetch("/api/product/trendingKeywords");
       const data = await res.json();
-      console.log(data);
       return data;
     },
   });
