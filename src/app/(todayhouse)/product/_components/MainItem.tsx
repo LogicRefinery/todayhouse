@@ -11,6 +11,7 @@ function MainItem() {
           <Image
             src={"/productMain.jpeg"}
             alt={"오늘의 인기 아이템 !"}
+            sizes="(max-width:1200px) 80vw, 60vw"
             fill
             priority
           />
